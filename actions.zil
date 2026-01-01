@@ -8,12 +8,9 @@
 		<CRLF>)>>
 
 <ROUTINE STONE-BARROW-F (RARG)
-	 <COND (<AND <EQUAL? .RARG ,M-BEG>
-		     <OR <VERB? ENTER>
-			 <AND <VERB? WALK>
-			      <EQUAL? ,PRSO ,P?WEST ,P?IN>>
-			 <AND <VERB? ENTER>
-			      <EQUAL? ,PRSO ,BARROW>>>>
+    <COND (<AND <EQUAL? .RARG ,M-BEG>
+        <OR <VERB? ENTER>
+        <AND <VERB? WALK> <EQUAL? ,PRSO ,P?WEST ,P?IN>>>>
 		<TELL
 "Inside the Barrow|
 As you enter the barrow, the door closes inexorably behind you. Around
@@ -29,5 +26,4 @@ skill and bravery!|
 |
 The ZORK trilogy continues with \"ZORK II: The Wizard of Frobozz\" and
 is completed in \"ZORK III: The Dungeon Master.\"" CR>
-		<QUIT>)>
->
+		<QUIT>)>>
