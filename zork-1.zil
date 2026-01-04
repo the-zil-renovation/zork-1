@@ -1,4 +1,4 @@
-"ZORK-1.ZIL for Zork I: The Great Underground Empire"
+;"ZORK-1.ZIL for Zork I: The Great Underground Empire"
 
 <VERSION ZIP>
 <CONSTANT RELEASEID 0>
@@ -6,36 +6,27 @@
 "Zork I: The Great Underground Empire|
 A ZIL Renovation by Alex Proudfoot">
 
-<SETG EXTRA-FLAGS (;BURNBIT ;CLIMBBIT ;RLANDBIT ;SACREDBIT)>
+;"Use Semantic Versioning for this game."
+<CONSTANT UPDATE "0">
+<CONSTANT BUGFIX "0">
 
-<INSERT-FILE "replacements">
+;"Game specific flags - only 4 available for Z-machine version 3."
+<SETG EXTRA-FLAGS (BURNBIT CLIMBBIT RLANDBIT SACREDBIT)>
+
+<INSERT-FILE "definition-overrides">
 <INSERT-FILE "parser">
-
-<ROUTINE PRINT-RELEASE-NUMBER ()
-    <TELL N <BAND <LOWCORE RELEASEID> *3777*> ".0.0">>
-
-<ROUTINE PRINT-SERIAL-NUMBER ()
-    <LOWCORE-TABLE SERIAL 6 PRINTC>>
-
-<ROUTINE PRINT-ZILF-VERSION ()
-    <TELL %<STRING ,ZIL-VERSION " lib " ,ZILLIB-VERSION> CR CR>>
+<INSERT-FILE "message-overrides">
 
 <ROUTINE GO ()
     <CRLF> <CRLF>
-    ;<TELL "INTRODUCTORY TEXT!" CR CR>
-    ;<V-VERSION> ;<CRLF>
-    <PRINT-GAME-BANNER>
-    <TELL "Release "> <PRINT-RELEASE-NUMBER> <TELL " / ">
-    <TELL "Serial number "> <PRINT-SERIAL-NUMBER> <TELL " / ">
-    <PRINT-ZILF-VERSION>
-    <TELL "This ZIL Renovation is work in progress." CR>
-    <TELL "Visit https://github.com/the-zil-renovation/zork-1/issues to report problems!" CR CR>
+    <V-VERSION> <CRLF>
     <SETG HERE ,WEST-OF-HOUSE>
     <MOVE ,PLAYER ,HERE>
     <V-LOOK>
     <MAIN-LOOP>>
 
-<INSERT-FILE "actions">
+<INSERT-FILE "backdrops">
+<INSERT-FILE "doors">
 <INSERT-FILE "fixtures">
 <INSERT-FILE "loot">
 <INSERT-FILE "places">

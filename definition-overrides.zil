@@ -1,4 +1,6 @@
-"REPLACEMENTS.ZIL for Zork I: The Great Underground Empire"
+"DEFINITION-OVERRIDES.ZIL for Zork I: The Great Underground Empire"
+
+"ZILF Library Definition Overrides"
 
 <REPLACE-DEFINITION DESCRIBE-OBJECTS
 
@@ -43,7 +45,7 @@ Args:
             <COND (<GENERIC-DESC? .I>
                    <SET N T>
                    <RETURN>)>>
-        ;"go through the N objects - hacked to remove initial CR -- AAP"
+        ;"go through the N objects - Hacked to remove initial CR by Alex Proudfoot!"
         <COND (.N
                <TELL ;CR "There ">
                <LIST-OBJECTS .RM GENERIC-DESC? ,L-ISMANY>

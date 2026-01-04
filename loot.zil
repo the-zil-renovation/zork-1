@@ -1,4 +1,4 @@
-"LOOT.ZIL for Zork I: The Great Underground Empire"
+;"LOOT.ZIL for Zork I: The Great Underground Empire"
 
 <OBJECT ADVERTISEMENT (IN MAILBOX)
     (ADJECTIVE SMALL) (SYNONYM ADVERTISEMENT LEAFLET BOOKLET MAIL)

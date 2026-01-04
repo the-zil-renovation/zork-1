@@ -1,4 +1,4 @@
-"FIXTURES.ZIL for Zork I: The Great Underground Empire"
+;"FIXTURES.ZIL for Zork I: The Great Underground Empire"
 
 <OBJECT MAILBOX (IN WEST-OF-HOUSE)
 	(ADJECTIVE SMALL) (SYNONYM MAILBOX BOX)
