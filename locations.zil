@@ -1,15 +1,15 @@
-;"PLACES.ZIL for Zork I: The Great Underground Empire"
+;"LOCATIONS.ZIL for Zork I: The Great Underground Empire"
+
+;"Rooms and their Action Routines"
 
 ;"Part - Forest and Outside of House"
-
-;"Section - West of House"
 
 <GLOBAL WON-FLAG <>>
 
 <ROOM WEST-OF-HOUSE (IN ROOMS)
     (DESC "West of House")
     (NORTH TO NORTH-OF-HOUSE) (NE TO NORTH-OF-HOUSE)
-    ;(SOUTH TO SOUTH-OF-HOUSE) ;(SE TO SOUTH-OF-HOUSE)
+    (SOUTH TO SOUTH-OF-HOUSE) (SE TO SOUTH-OF-HOUSE)
     (EAST "The door is boarded and you can't remove the boards.")
     ;(WEST TO FOREST-1)
     (SW TO STONE-BARROW IF WON-FLAG) (IN TO STONE-BARROW IF WON-FLAG)
@@ -24,8 +24,6 @@
 		    <TELL " A secret path leads southwest into the forest.">)>
 		<CRLF>)>>
 
-
-;"Section - Stone Barrow"
 
 <ROOM STONE-BARROW (IN ROOMS)
     (DESC "Stone Barrow")
@@ -58,8 +56,6 @@ is completed in \"ZORK III: The Dungeon Master.\"" CR>
 		<QUIT>)>>
 
 
-;"Section - North of House"
-
 <ROOM NORTH-OF-HOUSE (IN ROOMS)
     (DESC "North of House")
     (LDESC
@@ -74,8 +70,6 @@ the trees.")
     (GLOBAL WHITE-HOUSE BOARD FOREST BOARDED-WINDOW)>
 
 
-;"Section - South of House"
-
 <ROOM SOUTH-OF-HOUSE (IN ROOMS)
     (DESC "South of House")
     (LDESC
@@ -89,17 +83,26 @@ and all the windows are boarded.")
     (GLOBAL WHITE-HOUSE BOARD FOREST BOARDED-WINDOW)>
 
 
-;"Section - East of House"
-
 <ROOM EAST-OF-HOUSE (IN ROOMS)
     (DESC "Behind House")
     (NORTH TO NORTH-OF-HOUSE) (NW TO NORTH-OF-HOUSE)
     (SOUTH TO SOUTH-OF-HOUSE) (SW TO SOUTH-OF-HOUSE)
     ;(EAST TO CLEARING)
     ;(WEST TO KITCHEN IF KITCHEN-WINDOW IS OPEN) ;(IN TO KITCHEN IF KITCHEN-WINDOW IS OPEN)
-    ;(ACTION EAST-HOUSE)
+    (ACTION EAST-OF-HOUSE-F)
     (FLAGS LIGHTBIT ;RLANDBIT ;SACREDBIT)
     (GLOBAL WHITE-HOUSE FOREST KITCHEN-WINDOW)>
+
+<ROUTINE EAST-OF-HOUSE-F (RARG)
+	 <COND (<EQUAL? .RARG ,M-LOOK>
+		<TELL
+"You are behind the white house. A path leads into the forest
+to the east. In one corner of the house there is a small window
+which is ">
+		<COND (<FSET? ,KITCHEN-WINDOW ,OPENBIT>
+		       <TELL "open.">)
+		      (T <TELL "slightly ajar.">)>
+		<CRLF>)>>
 
 
 ;"Part - Inside of House"
