@@ -1,7 +1,0 @@
-;"SCENERY.ZIL for Zork I: The Great Underground Empire"
-
-<OBJECT BARROW (IN STONE-BARROW)
-(ADJECTIVE MASSIVE STONE) (SYNONYM BARROW TOMB)
-    (DESC "stone barrow")
-    ;(ACTION BARROW-FCN)
-    (FLAGS NDESCBIT)>

@@ -19,9 +19,4 @@ A ZIL Renovation by Alex Proudfoot">
     <SETG HERE ,WEST-OF-HOUSE> <MOVE ,PLAYER ,HERE>
     <V-LOOK> <MAIN-LOOP>>
 
-<INSERT-FILE "backdrops">
-<INSERT-FILE "doors">
-<INSERT-FILE "locations">
-<INSERT-FILE "fixtures">
-<INSERT-FILE "scenery">
-<INSERT-FILE "takeables">
+<INSERT-FILE "forest">
