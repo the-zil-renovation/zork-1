@@ -1,4 +1,4 @@
-"DEFINITION-OVERRIDES.ZIL for Zork I: The Great Underground Empire"
+"DEFINITIONS.ZIL for Zork I: The Great Underground Empire"
 
 "ZILF Library Definition Overrides"
 

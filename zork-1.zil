@@ -9,9 +9,9 @@ A ZIL Renovation by Alex Proudfoot">
 ;"Z-machine version 3 - only 4/32 flags not already defined by ZILF Library"
 <SETG EXTRA-FLAGS (BURNBIT CLIMBBIT RLANDBIT SACREDBIT)>
 
-<INSERT-FILE "definition-overrides">
+<INSERT-FILE "definitions">
 <INSERT-FILE "parser">
-<INSERT-FILE "message-overrides">
+<INSERT-FILE "messages">
 
 <ROUTINE GO ()
     <CRLF> <CRLF>

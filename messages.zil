@@ -1,4 +1,4 @@
-"MESSAGE-OVERRIDES.ZIL for Zork I: The Great Underground Empire"
+"MESSAGES.ZIL for Zork I: The Great Underground Empire"
 
 "ZILF Library Message Overrides"
 
