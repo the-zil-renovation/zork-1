@@ -5,4 +5,4 @@
 ;"Support Semantic Versioning."
 <COND (<AND <GASSIGNED? UPDATE> <GASSIGNED? BUGFIX>>
     <REPLACE-LIBRARY-MESSAGES VERSION
-        (RELEASE-AND-SERIAL "Release " N .RELEASE "." ,UPDATE "." ,BUGFIX " / Build ")>)>
+        (RELEASE-AND-SERIAL "Release " N .RELEASE "." N ,UPDATE "." N ,BUGFIX "-")>)>

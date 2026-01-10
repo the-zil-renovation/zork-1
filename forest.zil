@@ -1,7 +1,7 @@
 ;"FOREST.ZIL for Zork I: The Great Underground Empire"
 ;"The Forest (Including the Outside of the House)"
 
-;"1 - Objects (Including their Action Routines)"
+;"1 - Global Objects (Including their Action Routines)"
 ;"1a - Backdrops"
 
 <OBJECT WHITE-HOUSE (IN LOCAL-GLOBALS)
@@ -117,37 +117,7 @@ It is clear that the owners must have been extremely wealthy." CR>)
 		<TELL "You can't see any songbird here." CR>)>>
 
 
-;"1b - Doors to Nowhere"
-
-<OBJECT FRONT-DOOR (IN WEST-OF-HOUSE)
-    (ADJECTIVE FRONT BOARDED) (SYNONYM DOOR)
-	(DESC "door")
-	(ACTION FRONT-DOOR-F)
-	(FLAGS DOORBIT NDESCBIT)>
-
-<ROUTINE FRONT-DOOR-F ()
-    <COND (<VERB? OPEN>
-        <TELL "The door cannot be opened." CR>)
-    (<VERB? BURN>
-        <TELL "You cannot burn this door." CR>)
-    ;(<VERB? MUNG>
-        <TELL "You can't seem to damage the door." CR>)
-    ;(<VERB? LOOK-BEHIND>
-        <TELL "It won't open." CR>)>>
-
-
-<OBJECT BARROW-DOOR (IN STONE-BARROW)
-    (ADJECTIVE HUGE STONE) (SYNONYM DOOR)
-    (DESC "stone door")
-    (ACTION BARROW-DOOR-F)
-    (FLAGS DOORBIT NDESCBIT OPENBIT)>
-
-<ROUTINE BARROW-DOOR-F ()
-    <COND (<VERB? OPEN CLOSE>
-        <TELL "The door is too heavy." CR>)>>
-
-
-;"1c - Functional Doors"
+;"1b - Doors"
 
 <OBJECT	KITCHEN-WINDOW (IN LOCAL-GLOBALS)
     (ADJECTIVE KITCHEN SMALL) (SYNONYM WINDOW)
@@ -250,50 +220,6 @@ It is clear that the owners must have been extremely wealthy." CR>)
 		       <MOVE ,PRSO ,GRATING-ROOM>
 		       <TELL
 "The " D ,PRSO " goes through the grating into the darkness below." CR>)>)>>
-
-
-;"1d - Scenery"
-
-<OBJECT BARROW (IN STONE-BARROW)
-(ADJECTIVE MASSIVE STONE) (SYNONYM BARROW TOMB)
-    (DESC "stone barrow")
-    ;(ACTION BARROW-FCN)
-    (FLAGS NDESCBIT)>
-
-<ROUTINE BARROW-FCN ()
-	 <COND (<VERB? THROUGH>
-		<DO-WALK ,P?WEST>)>>
-
-
-;"1e - fixtures"
-
-<OBJECT MAILBOX (IN WEST-OF-HOUSE)
-	(ADJECTIVE SMALL) (SYNONYM MAILBOX BOX)
-	(DESC "small mailbox")
-	(CAPACITY 10)
-    ;(ACTION MAILBOX-F)
-	(FLAGS CONTBIT OPENABLEBIT)>
-
-<ROUTINE MAILBOX-F ()
-    <COND (<AND <VERB? TAKE> <EQUAL? ,PRSO ,MAILBOX>>
-        <TELL "It is securely anchored." CR>)>>
-
-
-;"1f - takeables"
-
-<OBJECT ADVERTISEMENT (IN MAILBOX)
-    (ADJECTIVE SMALL) (SYNONYM ADVERTISEMENT LEAFLET BOOKLET MAIL)
-	(DESC "leaflet")
-    (LDESC "A small leaflet is on the ground.")
-    (TEXT
-"\"WELCOME TO ZORK!|
-|
-ZORK is a game of adventure, danger, and low cunning. In it you
-will explore some of the most amazing territory ever seen by mortals.
-No computer should be without one!\"")
-    (SIZE 2)
-    (FLAGS ;BURNBIT READBIT TAKEBIT)
->
 
 
 ;"2 - Rooms (Including their Action Routines and Global Flags)"
@@ -504,3 +430,75 @@ extends to the east and west.")
       (FLAGS RLANDBIT ONBIT SACREDBIT)
       (GLOBAL TREE SONGBIRD WHITE-HOUSE FOREST)>
 
+
+;"3 - Local Objects (Including their Action Routines)"
+;"3a - Scenery"
+
+<OBJECT FRONT-DOOR (IN WEST-OF-HOUSE)
+    (ADJECTIVE FRONT BOARDED) (SYNONYM DOOR)
+	(DESC "door")
+	(ACTION FRONT-DOOR-F)
+	(FLAGS DOORBIT NDESCBIT)>
+
+<ROUTINE FRONT-DOOR-F ()
+    <COND (<VERB? OPEN>
+        <TELL "The door cannot be opened." CR>)
+    (<VERB? BURN>
+        <TELL "You cannot burn this door." CR>)
+    ;(<VERB? MUNG>
+        <TELL "You can't seem to damage the door." CR>)
+    ;(<VERB? LOOK-BEHIND>
+        <TELL "It won't open." CR>)>>
+
+
+<OBJECT BARROW-DOOR (IN STONE-BARROW)
+    (ADJECTIVE HUGE STONE) (SYNONYM DOOR)
+    (DESC "stone door")
+    (ACTION BARROW-DOOR-F)
+    (FLAGS DOORBIT NDESCBIT OPENBIT)>
+
+<ROUTINE BARROW-DOOR-F ()
+    <COND (<VERB? OPEN CLOSE>
+        <TELL "The door is too heavy." CR>)>>
+
+
+<OBJECT BARROW (IN STONE-BARROW)
+(ADJECTIVE MASSIVE STONE) (SYNONYM BARROW TOMB)
+    (DESC "stone barrow")
+    ;(ACTION BARROW-FCN)
+    (FLAGS NDESCBIT)>
+
+<ROUTINE BARROW-FCN ()
+	 <COND (<VERB? THROUGH>
+		<DO-WALK ,P?WEST>)>>
+
+
+;"3b - fixtures"
+
+<OBJECT MAILBOX (IN WEST-OF-HOUSE)
+	(ADJECTIVE SMALL) (SYNONYM MAILBOX BOX)
+	(DESC "small mailbox")
+	(CAPACITY 10)
+    ;(ACTION MAILBOX-F)
+	(FLAGS CONTBIT OPENABLEBIT)>
+
+<ROUTINE MAILBOX-F ()
+    <COND (<AND <VERB? TAKE> <EQUAL? ,PRSO ,MAILBOX>>
+        <TELL "It is securely anchored." CR>)>>
+
+
+;"3c - takeables"
+
+<OBJECT ADVERTISEMENT (IN MAILBOX)
+    (ADJECTIVE SMALL) (SYNONYM ADVERTISEMENT LEAFLET BOOKLET MAIL)
+	(DESC "leaflet")
+    (LDESC "A small leaflet is on the ground.")
+    (TEXT
+"\"WELCOME TO ZORK!|
+|
+ZORK is a game of adventure, danger, and low cunning. In it you
+will explore some of the most amazing territory ever seen by mortals.
+No computer should be without one!\"")
+    (SIZE 2)
+    (FLAGS ;BURNBIT READBIT TAKEBIT)
+>
