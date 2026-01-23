@@ -1,6 +1,4 @@
-"DEFINITIONS.ZIL for Zork I: The Great Underground Empire"
-
-"ZILF Library Definition Overrides"
+"Z O R K   I  -  ZILF Library Definition Overrides File"
 
 <REPLACE-DEFINITION DESCRIBE-OBJECTS
 
@@ -100,4 +98,52 @@ Args:
                                <GETP .OBJ ,P?FDESC>>
                           <GETP .OBJ ,P?LDESC>
                           <AND <SET P <GETP .OBJ ,P?DESCFCN>> <APPLY .P ,M-OBJDESC?>>>>>>>
+>
+
+
+<REPLACE-DEFINITION PRINT-RANK
+    <ROUTINE PRINT-RANK ('DEAD?)
+        <COND (.DEAD? <TELL "This gives you the rank of ">)
+              (ELSE <TELL "This would give you the rank of ">)>
+        <COND (<EQUAL? ,SCORE 350> <TELL "Master Adventurer">)
+              (<G? ,SCORE 330> <TELL "Wizard">)
+              (<G? ,SCORE 300> <TELL "Master">)
+              (<G? ,SCORE 200> <TELL "Adventurer">)
+              (<G? ,SCORE 100> <TELL "Junior Adventurer">)
+              (<G? ,SCORE 50> <TELL "Novice Adventurer">)
+              (<G? ,SCORE 25> <TELL "Amateur Adventurer">)
+              (ELSE <TELL "Beginner">)>
+        <CRLF>
+    >
+>
+
+
+<REPLACE-DEFINITION PRINT-GAME-OVER
+    ;"Prints a message explaining that the game is over or the player has died.
+      This is called after JIGS-UP has already printed the message passed in to
+      describe the specific circumstances, so usually this should print a generic
+      message appropriate for the game's theme."
+    <ROUTINE PRINT-GAME-OVER ()
+        <TELL
+"Inside the Barrow|
+As you enter the barrow, the door closes inexorably behind you. Around
+you it is dark, but ahead is an enormous cavern, brightly lit. Through
+its center runs a wide stream. Spanning the stream is a small wooden
+footbridge, and beyond a path leads into a dark tunnel. Above the
+bridge, floating in the air, is a large sign. It reads:  All ye who
+stand before this bridge have completed a great and perilous adventure
+which has tested your wit and courage. You have mastered">
+        <COND (<EQUAL? <BAND <GETB 0 1> 8> 0>
+            <TELL "
+the first part of the ZORK trilogy. Those who pass over this bridge must be
+prepared to undertake an even greater adventure that will severely test your
+skill and bravery!|
+|
+The ZORK trilogy continues with \"ZORK II: The Wizard of Frobozz\" and
+is completed in \"ZORK III: The Dungeon Master.\"">)
+        (T
+            <TELL "
+ZORK: The Great Underground Empire.">)>
+        <CRLF>
+        <CRLF>>
 >
