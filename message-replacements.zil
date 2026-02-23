@@ -1,6 +1,6 @@
-"Z O R K   I  -  ZILF Library Message Overrides File"
+"Z O R K   I  -  ZILF Library Message Replacements File"
 
-"Game Version"
+"VERSION"
 
 <COND (<AND <GASSIGNED? UPDATEID> <GASSIGNED? BUGFIXID>>
     <COND (<AND <0? ,RELEASEID> <0? ,UPDATEID> <0? ,BUGFIXID>>
@@ -11,7 +11,7 @@
             (RELEASE-AND-SERIAL "Release " N .RELEASE "." N ,UPDATEID "." N ,BUGFIXID "-")>)>)>
 
 
-"Score"
+"SCORE"
 
 <REPLACE-LIBRARY-MESSAGES SCORE
     (DEFAULT "Your score is " N .POINTS
@@ -21,7 +21,7 @@
                   " by " N .POINTS " point" IF <NOT <1? .POINTS>> !\s ".]")>
 
 
-"Jigs Up"
+"JIGS-UP"
 
 <IF-SCORING
     <REPLACE-LIBRARY-MESSAGES JIGS-UP
@@ -29,3 +29,11 @@
         (PROMPT-WITHOUT-UNDO "(Type RESTART, RESTORE, or QUIT):|>")
         (REPROMPT-WITH-UNDO "(Please type FULL, RESTART, UNDO, RESTORE, or QUIT) >")
         (REPROMPT-WITHOUT-UNDO "(Type RESTART, RESTORE, or QUIT):|>")>>
+
+
+"QUIT"
+
+<REPLACE-LIBRARY-MESSAGES QUIT
+    (PROMPT "Are you sure you want to quit?")
+    (GOODBYE " ")
+    (ABORTED "OK, not quitting.")>

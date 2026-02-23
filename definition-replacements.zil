@@ -1,4 +1,4 @@
-"Z O R K   I  -  ZILF Library Definition Overrides File"
+"Z O R K   I  -  ZILF Definition Replacements File"
 
 <REPLACE-DEFINITION DESCRIBE-OBJECTS
 
@@ -101,28 +101,7 @@ Args:
 >
 
 
-<REPLACE-DEFINITION PRINT-RANK
-    <ROUTINE PRINT-RANK ('DEAD?)
-        <COND (.DEAD? <TELL "This gives you the rank of ">)
-              (ELSE <TELL "This would give you the rank of ">)>
-        <COND (<EQUAL? ,SCORE 350> <TELL "Master Adventurer">)
-              (<G? ,SCORE 330> <TELL "Wizard">)
-              (<G? ,SCORE 300> <TELL "Master">)
-              (<G? ,SCORE 200> <TELL "Adventurer">)
-              (<G? ,SCORE 100> <TELL "Junior Adventurer">)
-              (<G? ,SCORE 50> <TELL "Novice Adventurer">)
-              (<G? ,SCORE 25> <TELL "Amateur Adventurer">)
-              (ELSE <TELL "Beginner">)>
-        <CRLF>
-    >
->
-
-
 <REPLACE-DEFINITION PRINT-GAME-OVER
-    ;"Prints a message explaining that the game is over or the player has died.
-      This is called after JIGS-UP has already printed the message passed in to
-      describe the specific circumstances, so usually this should print a generic
-      message appropriate for the game's theme."
     <ROUTINE PRINT-GAME-OVER ()
         <TELL
 "Inside the Barrow|
@@ -146,4 +125,20 @@ is completed in \"ZORK III: The Dungeon Master.\"">)
 ZORK: The Great Underground Empire.">)>
         <CRLF>
         <CRLF>>
+>
+
+
+<REPLACE-DEFINITION PRINT-RANK
+    <ROUTINE PRINT-RANK ('DEAD?)
+        <COND (.DEAD? <TELL "This gives you the rank of ">)
+              (ELSE <TELL "This would give you the rank of ">)>
+        <COND (<EQUAL? ,SCORE 350> <TELL "Master Adventurer">)
+              (<G? ,SCORE 330> <TELL "Wizard">)
+              (<G? ,SCORE 300> <TELL "Master">)
+              (<G? ,SCORE 200> <TELL "Adventurer">)
+              (<G? ,SCORE 100> <TELL "Junior Adventurer">)
+              (<G? ,SCORE 50> <TELL "Novice Adventurer">)
+              (<G? ,SCORE 25> <TELL "Amateur Adventurer">)
+              (ELSE <TELL "Beginner">)>
+        <TELL "." CR>>
 >
